@@ -40,7 +40,7 @@ print(f"正确率：{100*nRight/len(testData.target):2f}%")
 
 
 
-
+新奇新奇辛奇
 
 
    
