@@ -23,13 +23,8 @@ class dataset:
         dataset2=dataset()
         dataset1.data,dataset2.data,dataset1.target,dataset2.target=train_test_split(self.data,self.target, test_size=sampleProportion)
 
-        return dataset2,dataset1
-
-
-
-
-
-            
+        return dataset2,dataset1                   
+       
     
   
 
