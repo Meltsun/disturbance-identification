@@ -1,0 +1,32 @@
+function [w1,b1,w2,b2] = TLDMtrain(H,Q,P,G,S,e1,e2,s1,s2,c1,c2)
+ %Options是用来控制算法的选项参数的向量，optimset无参时，创建一个选项结构所有字段为默认值的选项
+options = optimset;    
+options.LargeScale = 'off';%LargeScale指大规模搜索，off表示在规模搜索模式关闭
+options.Display = 'off';    %表示无输出  
+    H1 = -G*inv(P)*G';
+    H2 = -H*inv(S)*H';
+    f1 = (e2'-Q'*inv(P)*G')';
+    f2 = (e1'-Q'*inv(S)*H')';
+    A1 = [];
+    b1 = [];
+    A2 = [];
+    b2 = [];
+    Aeq1 = []; 
+    beq1 = [];
+    Aeq2 = []; 
+    beq2 = [];
+    lb1 = zeros(s2,1); %相当于Quadprog函数中的LB，UB
+    lb2 = zeros(s1,1);
+    ub1 = c1*ones(s2,1);
+    ub2 = c2*ones(s1,1);
+    a01 = zeros(s2,1);  % a0是解的初始近似值
+    a02 = zeros(s1,1);  
+    [a1,fval1,eXitflag1,output1,lambda1]  = quadprog(H1,f1,A1,b1,Aeq1,beq1,lb1,ub1,a01,options);
+    [a2,fval2,eXitflag2,output2,lambda2]  = quadprog(H2,f2,A2,b2,Aeq2,beq2,lb2,ub2,a02,options);
+    u  = inv(P)*(Q-G'*a1);
+    v  = inv(S)*(Q-H'*a2);
+    w1 = u(1:end-1);
+    b1 = u(end);
+    w2 = v(1:end-1);
+    b2 = v(end);
+end
