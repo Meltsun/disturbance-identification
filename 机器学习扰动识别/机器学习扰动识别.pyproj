@@ -30,7 +30,73 @@
     <Compile Include="Machine Learning\preprocesser.py" />
     <Compile Include="Machine Learning\SVM_predictor.py" />
     <Compile Include="Machine Learning\SVM_validator.py" />
-    <Compile Include="Signal Processing\test.py">
+    <Compile Include="Signal Processing\columnavmean.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signal Processing\columnC.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signal Processing\columnDWTenergyH.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signal Processing\columnE.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signal Processing\columnEMDenergyH.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signal Processing\columnI.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signal Processing\columnKr.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signal Processing\columnL.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signal Processing\columnmax.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signal Processing\columnmean.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signal Processing\columnmin.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signal Processing\columnpk.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signal Processing\columnrms.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signal Processing\columnS.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signal Processing\columnSK.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signal Processing\columnstd.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signal Processing\columnSTFT.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signal Processing\columnvar.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signal Processing\columnxcorr.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signal Processing\datafeature.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signal Processing\mapnormal.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signal Processing\normal.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signal Processing\code8.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
