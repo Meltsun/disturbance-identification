@@ -2,7 +2,6 @@
 main
 广义神经网络-预测器
 参数已确定情况下，输出预测准确率
-
 """
 
 
@@ -29,18 +28,6 @@ for i in range(0,len(testData.target)):
         nRight+=1
 print(f"正确率：{100*nRight/len(testData.target):2f}%")
         
-
-
-
-
-
-
-
-
-
-
-
-新奇新奇辛奇
 
 
    
