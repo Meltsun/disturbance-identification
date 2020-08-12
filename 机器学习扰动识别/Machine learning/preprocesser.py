@@ -1,8 +1,3 @@
-"""
-数据集类，数据预处理
-
-"""
-import numpy as np
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 
@@ -61,17 +56,17 @@ class dataset:
 			elif(thisLable in condition1):
 				thisDataset.data[N]=self.data[i]
 				thisDataset.target[N]=1
-		newDataset.data=self.data
-
-   
+		return 
+		
 def preprocess(): 
 	file=open("D:\大创\处理后的数据.txt")
 	file1=file.readlines()
 	file.close()
-	
 	totalData=dataset().build_from_file(file1)
 
 preprocess()
+
+
 
 
 

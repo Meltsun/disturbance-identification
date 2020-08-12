@@ -4,7 +4,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>14f55f19-69fb-41c6-ba5a-7cf6467558ad</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Machine Learning\preprocesser.py</StartupFile>
+    <StartupFile>
+    </StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -26,10 +27,18 @@
     <Folder Include="Signal Processing\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Machine Learning\GRNN_predictor.py" />
-    <Compile Include="Machine Learning\preprocesser.py" />
-    <Compile Include="Machine Learning\SVM_predictor.py" />
-    <Compile Include="Machine Learning\SVM_validator.py" />
+    <Compile Include="Machine Learning\GRNN_predictor.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Machine Learning\preprocesser.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Machine Learning\SVM_predictor.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Machine Learning\SVM_validator.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Signal Processing\columnavmean.py">
       <SubType>Code</SubType>
     </Compile>

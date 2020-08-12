@@ -24,14 +24,6 @@ Classifier=None
 forecastResults=Classifier.predict(testData.data)
 nRight=0
 for i in range(0,len(testData.target)):
-    if(testData.target[i]==forecastResults[i]):
-        nRight+=1
+	if(testData.target[i]==forecastResults[i]):
+		nRight+=1
 print(f"正确率：{100*nRight/len(testData.target):2f}%")
-        
-
-
-   
-
-
-
-
