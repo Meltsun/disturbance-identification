@@ -4,8 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>14f55f19-69fb-41c6-ba5a-7cf6467558ad</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>
-    </StartupFile>
+    <StartupFile>Signal Processing\main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -13,6 +12,7 @@
     <Name>机器学习扰动识别</Name>
     <RootNamespace>机器学习扰动识别</RootNamespace>
     <SuppressConfigureTestFrameworkPrompt>true</SuppressConfigureTestFrameworkPrompt>
+    <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -27,10 +27,18 @@
     <Folder Include="Signal Processing\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Machine Learning\GRNN_predictor.py" />
-    <Compile Include="Machine Learning\preprocesser.py" />
-    <Compile Include="Machine Learning\SVM_predictor.py" />
-    <Compile Include="Machine Learning\SVM_validator.py" />
+    <Compile Include="Machine Learning\GRNN_predictor.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Machine Learning\preprocesser.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Machine Learning\SVM_predictor.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Machine Learning\SVM_validator.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Signal Processing\columnavmean.py">
       <SubType>Code</SubType>
     </Compile>
@@ -94,12 +102,22 @@
     <Compile Include="Signal Processing\mapnormal.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Signal Processing\module1.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Signal Processing\normal.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Signal Processing\code8.py">
+    <Compile Include="Signal Processing\main.py">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Signal Processing\datajiao.mat" />
+    <Content Include="Signal Processing\datano.mat" />
+    <Content Include="Signal Processing\datapa.mat" />
+    <Content Include="Signal Processing\dataqiao.mat" />
+    <Content Include="Signal Processing\dataya.mat" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

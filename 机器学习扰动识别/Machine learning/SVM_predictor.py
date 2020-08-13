@@ -5,13 +5,8 @@
 import numpy as np               #基本计算
 from preprocesser import dataset #数据集类
 
-#导入数据文件
-file=open("")
-file1=file.readlines()
-file.close()
-
-#生成数据集
-totalData=dataset().build_from_file(file1)
+#由基本的列表生成数据
+totalData=data_preprocess()
 
 #训练
 trainData,testData=totalData.split(0.2)
@@ -40,6 +35,7 @@ print(f"正确率：{100*nRight/len(testData.target):2f}%")
 
 
    
+
 
 
 
