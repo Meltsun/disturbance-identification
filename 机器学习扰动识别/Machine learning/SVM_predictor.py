@@ -4,12 +4,16 @@
 """
 import numpy as np               #基本计算
 from preprocesser import dataset #数据集类
+from preprocesser import preprocess
 
 #由基本的列表生成数据
-totalData=data_preprocess()
+totalData=preprocess()
+totalData.minmax_standardize()
+
 
 #训练
-trainData,testData=totalData.split(0.2)
+trainDataa=totalData.conditional_extract(1,2)
+
 Classifier=None
 
 #验证，输出正确率
