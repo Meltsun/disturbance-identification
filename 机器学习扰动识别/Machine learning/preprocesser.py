@@ -7,6 +7,8 @@ class dataset:
 	target=None
 	data=None
 	nLable={}
+
+	#构造方法
 	def __init__(self,N=0):
 		if(N!=0):
 			self.nSample=N
