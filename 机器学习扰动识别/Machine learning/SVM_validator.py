@@ -2,7 +2,6 @@
 main
 临近种类支持向量机-交叉验证器
 求超参数
-说明：目前为学习版本的代码
 """
 import numpy as np
 from sklearn.model_selection import cross_val_score #交叉验证函数
@@ -29,12 +28,12 @@ while(C<30000):
 	while(Gamma<8):
 		Gamma=next(iteratorGamma)
 		Classifier=SVC(kernel='rbf',gamma=Gamma,C=C)
-		Score=cross_val_score(Classifier, trainData.data, trainData.target, cv=k*2,scoring='accuracy',n_jobs=-1).mean()
+		Score=cross_val_score(Classifier, trainData.data, trainData.target, cv=k,scoring='accuracy').mean()
 		if(Score>bestScore):
 			bestScore=Score
 			bestC=C
 			bestGamma=Gamma
-	print(f"准确率：{Score*100:.2f}% \n C：{C} \n gamma：{Gamma}")
+		print(f"C：{C} \n gamma：{Gamma}\n准确率：{Score*100:.2f}% \n ")
 print(f"最高准确率：{bestScore*100:.2f}%")
-print(f"交叉验证成功 C:{svmC}, gamma:{svmGamma}")
+print(f"交叉验证成功 C:{bestC}, gamma:{bestGamma}")
 		
