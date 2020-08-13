@@ -84,11 +84,12 @@ class dataset:
 #数据导入和预处理，返回一个数据集
 
 def preprocess(): 
-	file=open("D:\大创\处理后的数据.txt")
+	file=open("alldata.txt")
 	file1=file.readlines()
 	file.close()
 	totalData=dataset()
 	totalData.build_from_file(file1)
 	return totalData
+
 
 

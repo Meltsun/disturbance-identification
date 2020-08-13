@@ -29,13 +29,12 @@ while(C<30000):
 	while(Gamma<8):
 		Gamma=next(iteratorGamma)
 		Classifier=SVC(kernel='rbf',gamma=Gamma,C=C)
-		Score=cross_val_score(Classifier, trainData.data, trainData.target, cv=k,scoring='accuracy').mean()
+		Score=cross_val_score(Classifier, trainData.data, trainData.target, cv=k*2,scoring='accuracy',n_jobs=-1).mean()
 		if(Score>bestScore):
 			bestScore=Score
 			bestC=C
 			bestGamma=Gamma
-	print(f"当前最高准确率：{bestScore*100:.2f}% \n C：{C} \n gamma：{Gamma}")
+	print(f"准确率：{Score*100:.2f}% \n C：{C} \n gamma：{Gamma}")
 print(f"最高准确率：{bestScore*100:.2f}%")
-
 print(f"交叉验证成功 C:{svmC}, gamma:{svmGamma}")
 		
