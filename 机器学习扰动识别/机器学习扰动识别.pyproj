@@ -108,7 +108,7 @@
     <Compile Include="Signal Processing\normal.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Signal Processing\code8.py">
+    <Compile Include="Signal Processing\main.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
