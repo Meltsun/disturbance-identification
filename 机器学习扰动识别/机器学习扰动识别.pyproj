@@ -30,6 +30,9 @@
     <Compile Include="Machine Learning\GRNN_predictor.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Machine Learning\KNN_validator.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Machine Learning\preprocesser.py">
       <SubType>Code</SubType>
     </Compile>
@@ -111,13 +114,6 @@
     <Compile Include="Signal Processing\main.py">
       <SubType>Code</SubType>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Signal Processing\datajiao.mat" />
-    <Content Include="Signal Processing\datano.mat" />
-    <Content Include="Signal Processing\datapa.mat" />
-    <Content Include="Signal Processing\dataqiao.mat" />
-    <Content Include="Signal Processing\dataya.mat" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

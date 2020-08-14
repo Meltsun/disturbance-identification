@@ -5,16 +5,15 @@
 import numpy as np               #基本计算
 from preprocesser import dataset #数据集类
 from preprocesser import preprocess
+from sklearn.neighbors import KNeighborsClassifier #KN分类器
 
 #由基本的列表生成数据
 totalData=preprocess()
 totalData.minmax_standardize()
+trainData,testData=totalData.split(0.8)
 
-
-#训练
-trainDataa=totalData.conditional_extract(1,2)
-
-Classifier=None
+knnClassifier=KNeighborsClassifier(weights="uniform",metric="manhattan")
+knnClassifier.fit()
 
 #验证，输出正确率
 forecastResults=Classifier.predict(testData.data)
@@ -39,6 +38,7 @@ print(f"正确率：{100*nRight/len(testData.target):2f}%")
 
 
    
+
 
 
 
