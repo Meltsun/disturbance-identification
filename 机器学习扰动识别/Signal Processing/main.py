@@ -1,3 +1,7 @@
-﻿import scipy as scio
-datafile = 'D:\chengxu\机器学习扰动识别\Signal Processing\datajiao.mat'
+﻿import scipy.io as scio
+
+
+datafile = 'datajiao.mat'
+
 datajiao = scio.loadmat(datafile)
+print(datajiao)
