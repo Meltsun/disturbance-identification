@@ -27,3 +27,4 @@ for i in range(0,len(testData.target)):
 	if(testData.target[i]==forecastResults[i]):
 		nRight+=1
 print(f"正确率：{100*nRight/len(testData.target):2f}%")
+
