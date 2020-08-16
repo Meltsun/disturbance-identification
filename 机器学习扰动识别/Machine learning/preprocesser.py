@@ -14,9 +14,11 @@ class dataset:
 		self.data=np.empty([N,self.nFeatures])
 		return None
 
+	#计算样本数
 	def count_sample(self):
 		return len(self.target)
 
+	#计算各个标签的样本数
 	def count_lable(self):
 		lables={}
 		for i in range(0,self.count_sample()):
@@ -75,11 +77,12 @@ class dataset:
 				N+=1
 		return thisDataset
 
+	#打乱
 	def shuffle(self):
 		self.data,self.target=shuffle(self.data,self.target)
 		return None
-#数据导入和预处理，返回一个数据集
 
+#数据导入和预处理，返回一个数据集
 def preprocess(): 
 	file=open("alldata.txt")
 	file1=file.readlines()
@@ -90,6 +93,7 @@ def preprocess():
 	print(totalData.count_lable())
 	return totalData
 
+#打印势力的所有属性
 def obj_print(self): 
 	print('\n'.join(['%s:%s' % item for item in self.__dict__.items()]))
 	return None
