@@ -108,7 +108,7 @@
     <Compile Include="Signal Processing\mapnormal.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Signal Processing\module1.py">
+    <Compile Include="Signal Processing\归一化.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Signal Processing\normal.py">

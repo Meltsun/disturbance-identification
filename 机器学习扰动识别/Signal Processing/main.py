@@ -4,4 +4,4 @@
 datafile = 'datajiao.mat'
 
 datajiao = scio.loadmat(datafile)
-print(datajiao)
+print(type(datajiao))#字典
