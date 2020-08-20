@@ -36,8 +36,8 @@ lastResult={(1,2):(2,1000),
 			(3,5):(0.5,100),
 			(4,5):(0.5,1)}
 
-for i in range(1,6):
-	for j in range(i+1,6):
+for i in [2]:
+	for j in [5]:
 		trainData=totalData.conditional_extract(i,j)
 		trainData.minmax_standardize()
 		trainData.shuffle()
