@@ -33,7 +33,7 @@ class dataset:
 	def build_from_file(self,file):
 		for i in range(0,self.count_sample()):
 			thisData=[eval(t) for t in file[i].split("\t")]
-			self.target[i]=thisData[-1]
+			self.target[i]=thisData[-1]-1
 			self.data[i]=thisData[:-1]
 		return None
 
@@ -48,6 +48,7 @@ class dataset:
 
 	#切分数据,输入为前一返回数据集的样本数量
 	def split(self,N,randomState=None): 
+		N=round(N)
 		dataset1=dataset(self.count_sample()-N)
 		dataset2=dataset(N)
 		dataset1.data,dataset2.data,dataset1.target,dataset2.target=train_test_split(self.data,self.target, test_size=N,random_state=randomState,stratify=self.target)
