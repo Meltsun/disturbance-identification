@@ -33,7 +33,7 @@ class dataset:
 	def build_from_file(self,file):
 		for i in range(0,self.count_sample()):
 			thisData=[eval(t) for t in file[i].split("\t")]
-			self.target[i]=thisData[-1]
+			self.target[i]=thisData[-1]-1
 			self.data[i]=thisData[:-1]
 		return None
 
@@ -46,11 +46,12 @@ class dataset:
 		self.data=preprocessing.MinMaxScaler().fit_transform(self.data)
 		return None
 
-	#切分数据并随机打乱,输入为前一返回数据集的样本数量
-	def split(self,N): 
+	#切分数据,输入为前一返回数据集的样本数量
+	def split(self,N,randomState=None): 
+		N=round(N)
 		dataset1=dataset(self.count_sample()-N)
 		dataset2=dataset(N)
-		dataset1.data,dataset2.data,dataset1.target,dataset2.target=train_test_split(self.data,self.target, test_size=N)
+		dataset1.data,dataset2.data,dataset1.target,dataset2.target=train_test_split(self.data,self.target, test_size=N,random_state=randomState,stratify=self.target)
 		return dataset2,dataset1
 
 	#根据条件生成数据集,输入为标签为所有标签为0的动作和所有为1的，返回生成的数据集
@@ -78,8 +79,8 @@ class dataset:
 		return thisDataset
 
 	#打乱
-	def shuffle(self):
-		self.data,self.target=shuffle(self.data,self.target)
+	def shuffle(self,x=None):
+		self.data,self.target=shuffle(self.data,self.target,random_state=x)
 		return None
 
 #数据导入和预处理，返回一个数据集
@@ -89,8 +90,9 @@ def preprocess():
 	file.close()
 	totalData=dataset(len(file1))
 	totalData.build_from_file(file1)
-	print("各类样本数量")
+	print(f"\n各类样本数量:")
 	print(totalData.count_lable())
+	print('')
 	return totalData
 
 #打印势力的所有属性
