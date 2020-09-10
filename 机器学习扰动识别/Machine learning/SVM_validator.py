@@ -5,9 +5,9 @@ main
 """
 import numpy as np
 from sklearn.model_selection import cross_val_score #交叉验证 函数
-from preprocesser import dataset #数据集 类
-from preprocesser import obj_print#实例打印 函数
-from preprocesser import preprocess#生成数据集 函数
+from Dataset_class import dataset #数据集 类
+from Dataset_class import obj_print#实例打印 函数
+from Dataset_class import preprocess#生成数据集 函数
 from sklearn.svm import SVC      #SVM分类器 类
 
 totalData=preprocess()
@@ -38,20 +38,20 @@ lastResult={(1,2):(2,1000),
 
 
 
-for i in [2]:
-	for j in [5]:
+for i in [0]:
+	for j in [2]:
 		trainData=totalData.conditional_extract(i,j)
 		trainData.minmax_standardize()
 		trainData.shuffle()
 		print("■■■■■■■■■■■■■■■■■■■■■■■■■■■")
 		obj_print(trainData)
 
-		iteratorC=iter(listC[lastResult[(i,j)][1]])
+		iteratorC=iter(listC[lastResult[(i+1,j+1)][1]])
 		C=next(iteratorC)
 		k=max(trainData.count_lable().values())
 
 		while(C!=0):
-			iteratorGamma=iter(listGamma[lastResult[(i,j)][0]])
+			iteratorGamma=iter(listGamma[lastResult[(i+1,j+1)][0]])
 			Gamma=next(iteratorGamma)
 			while(Gamma!=0):
 				Classifier=SVC(kernel='rbf',gamma=Gamma,C=C)
@@ -67,8 +67,8 @@ for i in [2]:
 
 
 print("■■■■■■■■■■■■■■■■■■■■■■■■■■■")
-for i in range(1,6):
-	for j in range(i+1,6):
+for i in range(0,4):
+	for j in range(i+1,5):
 		print(f"\n{i} vs {j}")
 		print(result[i][j])
 

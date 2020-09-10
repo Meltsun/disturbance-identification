@@ -3,8 +3,8 @@
 参数已确定情况下，输出预测准确率
 """
 import numpy as np               #基本计算
-from preprocesser import dataset #数据集类
-from preprocesser import preprocess
+from Dataset_class import dataset #数据集类
+from Dataset_class import preprocess
 from sklearn.neighbors import KNeighborsClassifier #KN分类器
 from sklearn.svm import SVC
 
@@ -44,7 +44,10 @@ knnResults=knnClassifier.predict_proba(testData.data)
 possibility={}
 for i in range(0,testData.count_sample()):
     if(knnResults[i].max()==1):
-        forecastResults[i]=knnResults[i].argmax()
+        if(knnResults[i].argmax()==2):
+            possibility[i]=[knnResults[i].argmax(),0]
+        else:
+            possibility[i]=[knnResults[i].argmax(),2]
     else:
         possibility[i]=[knnResults[i].argmax(),0]
         if(possibility[i][0]==0):
@@ -53,8 +56,9 @@ for i in range(0,testData.count_sample()):
         for j in range(1,5):
             if(knnResults[i][j]>max and j!=possibility[i][0]):
                 possibility[i][-1]=j
-        possibility[i].sort()
+    possibility[i].sort()
 
+print(forecastResults)
 #计算knn后的正确率
 j=0
 nRight=[0 for i in range(0,5)]
