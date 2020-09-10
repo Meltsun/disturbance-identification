@@ -1,7 +1,7 @@
 #knn 测试
 import numpy as np               #基本计算
-from preprocesser import dataset #数据集类
-from preprocesser import preprocess
+from Dataset_class import dataset #数据集类
+from Dataset_class import preprocess
 from sklearn.neighbors import KNeighborsClassifier #KN分类器
 import copy
 #由基本的列表生成数据

@@ -6,7 +6,7 @@ main
 
 
 import numpy as np               #基本计算
-from preprocesser import dataset #数据集类
+from Dataset_class import dataset #数据集类
 
 #导入数据文件
 file=open("")

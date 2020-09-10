@@ -5,9 +5,9 @@ main
 """
 import numpy as np
 from sklearn.model_selection import cross_val_score #交叉验证 函数
-from preprocesser import dataset #数据集 类
-from preprocesser import obj_print#实例打印 函数
-from preprocesser import preprocess#生成数据集 函数
+from Dataset_class import dataset #数据集 类
+from Dataset_class import obj_print#实例打印 函数
+from Dataset_class import preprocess#生成数据集 函数
 from sklearn import neighbors  #KN分类器
 
 trainData=preprocess()
