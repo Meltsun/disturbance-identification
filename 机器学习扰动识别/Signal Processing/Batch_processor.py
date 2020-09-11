@@ -8,7 +8,6 @@ import numpy as np
 #归一化，划分
 #得到原始样本集data（2维numpy数组） 
 
-
 #调用特征值提取函数，得到样本特征集
 from Frequency import frequency_draw,time_draw
 featureSet=np.empty([nSample,nTimeFeature+nFrequencyFeature])
