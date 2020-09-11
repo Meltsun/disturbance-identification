@@ -17,8 +17,7 @@ HHPE=np.sum(wp['dd'].data*wp['dd'].data)
 E=[LLPE,LHPE,HLPE,HHPE]
 P=E/np.sum(E)
 WE=-np.sum(np.log2(P)*P)
-print(LLPE)
-print(LHPE)
+
 print(HLPE)
 print(HHPE)
 print(E)
