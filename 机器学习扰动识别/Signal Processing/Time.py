@@ -4,3 +4,6 @@ import numpy as np
 def time_draw(data:np.narray):
 	feature=np.empty(15)
 	return feature
+
+def xxxtezhgeng(data):
+	return x
