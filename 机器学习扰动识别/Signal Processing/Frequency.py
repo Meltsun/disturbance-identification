@@ -40,7 +40,10 @@ print(WE)
 
 '''
 
-def frequency_draw(data2:np.narray):
+x=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33]
+
+
+def frequency_draw(data2:np.array):
 	wp=pywt.WaveletPacket(data=data2,wavelet='db3',mode='symmetric',maxlevel=2)
 	LLPE=np.sum(wp['aa'].data*wp['aa'].data)
 	LHPE=np.sum(wp['ad'].data*wp['ad'].data)
@@ -65,5 +68,9 @@ def frequency_draw(data2:np.narray):
 	feature[9]=sigma[3]
 
 	return feature
+
+s=frequency_draw(x)
+print(s)
+
 
 
