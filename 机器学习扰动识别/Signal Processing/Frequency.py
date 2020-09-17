@@ -16,13 +16,14 @@ def frequency_draw(data2:np.ndarray):
 	S=np.array([wp['aa'].data,wp['ad'].data,wp['da'].data,wp['dd'].data])
 	U,sigma,VT=np.linalg.svd(S,full_matrices=1,compute_uv=1)
 	feature=np.empty(10)
-	feature[0]=LLPE
-	feature[1]=LHPE
-	feature[2]=HLPE
-	feature[3]=HHPE
-	feature[4]=WE
-	feature[5]=WIQ
-	feature[6]=sigma[0]
+	feature[0]=LLPE #低频的低频能量
+	feature[1]=LHPE#低频的高频
+	feature[2]=HLPE#高频的低频
+	feature[3]=HHPE#高频的高频
+	feature[4]=WE  #信息熵
+	feature[5]=WIQ   #信息量
+	#四个奇异值
+	feature[6]=sigma[0]   
 	feature[7]=sigma[1]
 	feature[8]=sigma[2]
 	feature[9]=sigma[3]

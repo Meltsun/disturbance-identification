@@ -35,8 +35,8 @@ def time_draw(data:np.ndarray):
 
 	#波形特征
 	#峭度（波形的平缓程度）
-	feature[9]=np.sqrt(np.mean(pow(data,4))/feature[5]
-
+	feature[9]=np.sqrt(np.mean(pow(data,4))/feature[5])
+	
 	#偏度（数据分布非对称程度）
 	feature[10]=np.mean(pow(((data-feature[3])/np.sqrt(feature[7])),3))
 
