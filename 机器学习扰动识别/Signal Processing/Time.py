@@ -2,7 +2,7 @@
 #当一个特征值需要多行才能算出来时，用单独函数封装。保证time_draw函数够直观
 import numpy as np
 import math
-def time_draw(data:np.narray):
+def time_draw(data:np.ndarray):
 	feature=np.empty(15)
 	return feature
 
