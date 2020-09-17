@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.utils import shuffle
 
 class dataset:
-	nFeatures=25 #这是一个人工确定的值 
+	nFeatures=40 #这是一个人工确定的值 
 	target=None
 	data=None
 

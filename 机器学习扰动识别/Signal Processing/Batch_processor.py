@@ -25,7 +25,7 @@ print("样本划分成功")
 #调用特征值提取函数，得到样本特征集
 
 #from Time import time_draw
-nTimeFeature=15
+nTimeFeature=30
 nFrequencyFeature=10
 featureSet=np.empty([nSample*15,nTimeFeature+nFrequencyFeature])
 
