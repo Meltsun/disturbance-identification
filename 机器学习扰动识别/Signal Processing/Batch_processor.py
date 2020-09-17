@@ -23,7 +23,6 @@ T=33#周期，必须为33的倍数。
 nSample=(nTime-T//3)//(T*2//3)#每个点取样本数量
 data=np.empty([nSample*15,T])
 targrt=np.empty(nSample*15)
-
 for i in range(0,15):
 	for j in range(0,nSample):
 		data[i*nSample+j]=originSet[i][j*(T*2//3):j*(T*2//3)+33]

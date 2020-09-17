@@ -29,7 +29,7 @@ class dataset:
 				lables[thisTarget]=1
 		return lables
 
-	#从字符串列表生成数据集
+	#从字符串列表生成数据集,待修改
 	def build_from_file(self,file):
 		for i in range(0,self.count_sample()):
 			thisData=[eval(t) for t in file[i].split("\t")]
