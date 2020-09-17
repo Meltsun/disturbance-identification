@@ -58,7 +58,6 @@ for i in range(0,testData.count_sample()):
                 possibility[i][-1]=j
     possibility[i].sort()
 
-print(forecastResults)
 #计算knn后的正确率
 j=0
 nRight=[0 for i in range(0,5)]

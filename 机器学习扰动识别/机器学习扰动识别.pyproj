@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>14f55f19-69fb-41c6-ba5a-7cf6467558ad</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Signal Processing\Batch_processor.py</StartupFile>
+    <StartupFile>Machine Learning\GRNN_test.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -24,10 +24,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Machine Learning\" />
+    <Folder Include="test\" />
     <Folder Include="Signal Processing\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Machine Learning\GRNN_predictor.py">
+    <Compile Include="Machine Learning\GRNN_test.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Machine Learning\KNN_validator.py">
@@ -58,6 +59,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Signal Processing\Time.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="test\http.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
