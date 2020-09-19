@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>14f55f19-69fb-41c6-ba5a-7cf6467558ad</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Signal Processing\Batch_processor.py</StartupFile>
+    <StartupFile>Machine Learning\NC_SVM_predictor.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -52,7 +52,7 @@
     <Compile Include="Signal Processing\Frequency.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Signal Processing\Origin_data.py">
+    <Compile Include="Signal Processing\module1.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Signal Processing\Time.py">
