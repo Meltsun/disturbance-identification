@@ -11,7 +11,7 @@ from sklearn.svm import SVC
 #由基本的列表生成数据
 totalData=preprocess()
 totalData.minmax_standardize()
-trainData,testData=totalData.split(0.8*750)
+trainData,testData=totalData.split(0.8*750,randomState=42)
 
 #总预测结果 None表示未完成分类
 forecastResults=[None for i in range(0,testData.count_sample())]

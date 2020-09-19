@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>14f55f19-69fb-41c6-ba5a-7cf6467558ad</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Machine Learning\GRNN_test.py</StartupFile>
+    <StartupFile>Signal Processing\Batch_processor.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -46,16 +46,13 @@
     <Compile Include="Machine Learning\SVM_validator.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Machine Learning\KNN_test.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Signal Processing\Batch_processor.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Signal Processing\Frequency.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Signal Processing\General_function.py">
+    <Compile Include="Signal Processing\Origin_data.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Signal Processing\Time.py">

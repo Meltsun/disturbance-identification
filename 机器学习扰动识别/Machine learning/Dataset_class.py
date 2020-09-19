@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.utils import shuffle
 
 class dataset:
-	nFeatures=30 #这是一个人工确定的值 
+	nFeatures=40 #这是一个人工确定的值 
 	target=None
 	data=None
 
@@ -32,8 +32,8 @@ class dataset:
 	#从字符串列表生成数据集,待修改
 	def build_from_file(self,file):
 		for i in range(0,self.count_sample()):
-			thisData=[eval(t) for t in file[i].split("\t")]
-			self.target[i]=thisData[-1]-1
+			thisData=[eval(t) for t in file[i].split(",")]
+			self.target[i]=thisData[-1]
 			self.data[i]=thisData[:-1]
 		return None
 
@@ -85,7 +85,7 @@ class dataset:
 
 #数据导入和预处理，返回一个数据集
 def preprocess(): 
-	file=open("alldata.txt")
+	file=open("feature.csv")
 	file1=file.readlines()
 	file.close()
 	totalData=dataset(len(file1))
@@ -100,4 +100,4 @@ def obj_print(self):
 	print('\n'.join(['%s:%s' % item for item in self.__dict__.items()]))
 	return None
 
-
+preprocess()
