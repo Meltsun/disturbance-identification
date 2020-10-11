@@ -88,7 +88,7 @@ def time_draw(data:np.ndarray):
 	feature[24]=np.sqrt(np.mean(pow(data2,4))/feature[20])
 
 	#偏度（数据分布非对称程度）
-	feature[25]=np.mean(pow(((data2-feature[18])/np.sqrt(feature[22])),3))
+	feature[25]=np.mean(pow(((data2-feature[18])/np.sqrt(feature[22])),3))*10
 
 	#裕度因子（对冲击敏感）
 	feature[26]=feature[17]/pow(np.mean(np.sqrt(abs(data2))),2)
