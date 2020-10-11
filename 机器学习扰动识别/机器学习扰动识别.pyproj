@@ -46,16 +46,13 @@
     <Compile Include="Machine Learning\SVM_validator.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Machine Learning\KNN_test.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Signal Processing\Batch_processor.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Signal Processing\Frequency.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Signal Processing\Origin_data.py">
+    <Compile Include="Signal Processing\module1.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Signal Processing\Time.py">
