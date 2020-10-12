@@ -11,7 +11,7 @@ from sklearn.svm import SVC
 #由基本的列表生成数据
 totalData=preprocess()
 totalData.minmax_standardize()
-trainData,testData=totalData.split(0.8*750,randomState=42)
+trainData,testData=totalData.split(0.8*750)
 
 #总预测结果 None表示未完成分类
 forecastResults=[None for i in range(0,testData.count_sample())]
@@ -27,6 +27,7 @@ svmClassifier={0: {1:SVC(kernel='rbf',gamma=2,C=0.5),
                2: {3:SVC(kernel='rbf',gamma=2.685,C=1.6), 
                    4:SVC(kernel='rbf',gamma=2.6,C=5)}, 
                3: {4:SVC(kernel='rbf',gamma=0.9,C=15)}}
+
 for i in range(0,4):
     for j in range(i+1,5):
         thisData=trainData.conditional_extract(i,j) 
@@ -44,17 +45,17 @@ knnResults=knnClassifier.predict_proba(testData.data)
 possibility={}
 for i in range(0,testData.count_sample()):
     if(knnResults[i].max()==1):
-        if(knnResults[i].argmax()==2):
-            possibility[i]=[knnResults[i].argmax(),0]
-        else:
+        if(knnResults[i].argmax()==4):
             possibility[i]=[knnResults[i].argmax(),2]
+        else:
+            possibility[i]=[knnResults[i].argmax(),4]
     else:
         possibility[i]=[knnResults[i].argmax(),0]
         if(possibility[i][0]==0):
             possibility[i][-1]=1
         max=knnResults[i][possibility[i][-1]]
-        for j in range(1,5):
-            if(knnResults[i][j]>max and j!=possibility[i][0]):
+        for j in range(0,5):
+            if(knnResults[i][j]>max and j not in possibility[i]):
                 possibility[i][-1]=j
     possibility[i].sort()
 

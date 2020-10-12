@@ -52,9 +52,7 @@
     <Compile Include="Signal Processing\Frequency.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Signal Processing\module1.py">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Signal Processing\Origin_data.py" />
     <Compile Include="Signal Processing\Time.py">
       <SubType>Code</SubType>
     </Compile>
