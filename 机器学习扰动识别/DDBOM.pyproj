@@ -59,8 +59,6 @@
     <Compile Include="Machine Learning\pickle_load.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="visualizer\Frequency.py" />
-    <Compile Include="visualizer\Time.py" />
     <Compile Include="visualizer\streamlit.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
