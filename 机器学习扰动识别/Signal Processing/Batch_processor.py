@@ -26,18 +26,16 @@ print("样本划分成功")
 
 #from Time import time_draw
 nTimeFeature=30
-nFrequencyFeature=10
-featureSet=np.empty([nSample*15,nTimeFeature+nFrequencyFeature])
+featureSet=np.empty([nSample*15,40])
 
 for i in range(0,nSample*15):
 	featureSet[i][:nTimeFeature]=time_draw(data[i])
 	featureSet[i][nTimeFeature:]=frequency_draw(data[i])
 print("特征值提取成功")
 #保存为文件
-allData=np.empty([nSample*15,nTimeFeature+nFrequencyFeature+1])
+allData=np.empty([nSample*15,41])
 #allData[:,:-1]=preprocessing.MinMaxScaler().fit_transform(featureSet)
 allData[:,:-1]=featureSet
 allData[:,-1]=targetSet
 np.savetxt('feature.csv',allData,delimiter=',',fmt='%f')
-
 

@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>14f55f19-69fb-41c6-ba5a-7cf6467558ad</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Signal Processing\Batch_processor.py</StartupFile>
+    <StartupFile>Machine Learning\NC_SVM_predictor.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -24,7 +24,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Machine Learning\" />
-    <Folder Include="test\" />
+    <Folder Include="visualizer\" />
     <Folder Include="Signal Processing\" />
   </ItemGroup>
   <ItemGroup>
@@ -34,7 +34,7 @@
     <Compile Include="Machine Learning\KNN_validator.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Machine Learning\SVM_test.py">
+    <Compile Include="Machine Learning\pickle_save.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Machine Learning\Dataset_class.py">
@@ -52,15 +52,16 @@
     <Compile Include="Signal Processing\Frequency.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Signal Processing\Origin_data.py">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Signal Processing\Origin_data.py" />
     <Compile Include="Signal Processing\Time.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="test\http.py">
+    <Compile Include="Machine Learning\pickle_load.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="visualizer\Frequency.py" />
+    <Compile Include="visualizer\Time.py" />
+    <Compile Include="visualizer\streamlit.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

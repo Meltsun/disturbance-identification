@@ -103,5 +103,5 @@ def time_draw(data:np.ndarray):
 	feature[29]=feature[15]/feature[19]
 
 
-	return feature
+	return feature,data2
 
