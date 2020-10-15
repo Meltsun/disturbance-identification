@@ -1,10 +1,15 @@
+"""
+数据集类
+
+"""
+
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
 import numpy as np
 from sklearn.utils import shuffle
 
 class dataset:
-	nFeatures=40 #这是一个人工确定的值 
+	nFeatures=40 #特征值数量。需要人工设置
 	target=None
 	data=None
 
@@ -95,9 +100,7 @@ def preprocess():
 	print('')
 	return totalData
 
-#打印势力的所有属性
+#打印实例的所有属性
 def obj_print(self): 
 	print('\n'.join(['%s:%s' % item for item in self.__dict__.items()]))
 	return None
-
-preprocess()

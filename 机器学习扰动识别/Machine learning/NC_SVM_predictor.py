@@ -7,11 +7,12 @@ from Dataset_class import dataset #数据集类
 from Dataset_class import preprocess
 from sklearn.neighbors import KNeighborsClassifier #KN分类器
 from sklearn.svm import SVC
+import pickle
 
 #由基本的列表生成数据
 totalData=preprocess()
 totalData.minmax_standardize()
-trainData,testData=totalData.split(0.8*750)
+trainData,testData=totalData.split(0.8*750,randomState=42)
 
 #总预测结果 None表示未完成分类
 forecastResults=[None for i in range(0,testData.count_sample())]
@@ -34,9 +35,16 @@ for i in range(0,4):
         svmClassifier[i][j].fit(thisData.data,thisData.target)
 thisData=None
 
+file=open("svmClassifiers.pkl",'wb')
+pickle.dump(svmClassifier,file,4)
+file.close()
+
 #生成knn5分类器
 knnClassifier=KNeighborsClassifier(n_neighbors=9,weights="distance",metric="manhattan")
 knnClassifier.fit(trainData.data,trainData.target)
+file=open("knnClassifier.pkl",'wb')
+pickle.dump(knnClassifier,file,4)
+file.close()
 
 #得到验证样本的概率
 knnResults=knnClassifier.predict_proba(testData.data)
@@ -46,7 +54,7 @@ possibility={}
 for i in range(0,testData.count_sample()):
     if(knnResults[i].max()==1):
         if(knnResults[i].argmax()==4):
-            possibility[i]=[knnResults[i].argmax(),2]
+            possibility[i]=[knnResults[i].argmax(),1]
         else:
             possibility[i]=[knnResults[i].argmax(),4]
     else:
@@ -73,6 +81,7 @@ for i in range(0,testData.count_sample()):
             nRight[round(testData.target[i])]+=1
 
 print(f"knn五选二正确率：{100*j/testData.count_sample():4f}%\n")
+
 
 for i in range(0,5):
     print(f" {i} 正确率：{100*nRight[i]/testData.count_lable()[i]:4f}%")
