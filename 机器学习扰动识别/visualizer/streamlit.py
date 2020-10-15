@@ -9,6 +9,7 @@ def load_file():
     ds = pd.read_csv("originSet.csv",header=None,index_col=None )
     return ds
 
+
 @st.cache
 def load_data(dsType,dsNumber):
     ds=load_file()
