@@ -3,6 +3,7 @@ from Frequency import frequency_draw
 from Time import time_draw
 from sklearn import preprocessing
 import numpy as np
+import pandas as pd
 
 ##划分,得到样本集data（2维numpy数组）
 T=33#周期，必须为33的倍数。
@@ -11,11 +12,7 @@ nSample=(nTime-T//3)//(T*2//3)#每个点取样本数量
 data=np.empty([nSample*15,T])
 targetSet=np.empty(nSample*15)
 
-originSet=open("originSet.csv").readlines()
-
-for i in range(0,15):
-	thisData=originSet[i].split(',')
-	originSet[i]=[eval(n) for n in thisData]
+originSet=pd.read_csv("originSet.csv",header=None,index_col=None ).values
 
 for i in range(0,15):
 	for j in range(0,nSample):
