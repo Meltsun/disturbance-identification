@@ -1,6 +1,10 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
+#import matplotlib
+#matplotlib.use('TkAgg')
+import matplotlib.pyplot as plt
+
 
 #读取整个文件,返回ndarray
 @st.cache
@@ -42,6 +46,10 @@ if(agree=='单个样本'):
 	#dFeature
 	if(dsCruve=='时域'):
 		data
+		#ser=pd.Series(data.tolist())
+		#ser.plot()
+		st.line_chart(data)
+		#st.pyplot()
 		#图
 		dFeature=feature.iloc[dsType*150+dsNumber][:-1][0:15]
 		st.dataframe(pd.DataFrame(dFeature[0:8]).T)
