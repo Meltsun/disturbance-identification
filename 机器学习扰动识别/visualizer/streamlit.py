@@ -1,6 +1,5 @@
 import streamlit as st
 import numpy as np
-import math
 import pandas as pd
 
 #读取整个文件,返回ndarray
@@ -12,18 +11,6 @@ def load_dataset():
 @st.cache
 def load_features():
 	return pd.read_csv("feature.csv",index_col=None,header=0,encoding='gbk')
-
-#生成散点图所需要的颜色列表
-@st.cache
-def get_colors(dsShow):
-	dsShowN=len(dsShow)
-	dsTypeC = ['r','g','b','m','k']
-	featureC = [0 for i in range(0,dsShowN*150)]
-	for i in range(0,dsShowN):
-		t=dsTypeC[dsShow[i]]
-		for j in range(150*i,150*i+150):
-			featureC[j]=t
-	return featureC
 
 #定义通用的变量
 dataSet=load_dataset()#所有数据
@@ -39,7 +26,8 @@ st.sidebar.write('---')
 
 if(agree=='单个样本'):
 	#获取侧栏的控制字
-	dsType = dsTypeN.index(st.sidebar.selectbox('扰动类型' , dsTypeN))#整数，0-4
+	dsType = st.sidebar.selectbox('扰动类型' , dsTypeN)
+	
 	dsNumber = st.sidebar.slider('样本编号',1,150,50,1)-1#整数，0-149
 	st.sidebar.write('---')
 	dsCruve = st.sidebar.selectbox('图像类型' , dsCruveN)#字符串
@@ -47,6 +35,7 @@ if(agree=='单个样本'):
 	#小标题
 	st.title(f'【{dsType}扰动信号No.{dsNumber}】- {dsCruve} ')
 
+	dsType = dsTypeN.index(dsType)#整数，0-4
 	#单个样本分析中的通用变量
 	data=dataSet[dsType*3+dsNumber//50][dsNumber%50*22:dsNumber%50*22+33]
 	
