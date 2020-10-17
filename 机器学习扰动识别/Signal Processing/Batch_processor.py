@@ -3,6 +3,7 @@ from Frequency import frequency_draw
 from Time import time_draw
 from sklearn import preprocessing
 import numpy as np
+import pandas as pd
 
 ##划分,得到样本集data（2维numpy数组）
 T=33#周期，必须为33的倍数。
@@ -11,11 +12,7 @@ nSample=(nTime-T//3)//(T*2//3)#每个点取样本数量
 data=np.empty([nSample*15,T])
 targetSet=np.empty(nSample*15)
 
-originSet=open("originSet.csv").readlines()
-
-for i in range(0,15):
-	thisData=originSet[i].split(',')
-	originSet[i]=[eval(n) for n in thisData]
+originSet=pd.read_csv("originSet.csv",header=None,index_col=None ).values
 
 for i in range(0,15):
 	for j in range(0,nSample):
@@ -26,18 +23,16 @@ print("样本划分成功")
 
 #from Time import time_draw
 nTimeFeature=30
-nFrequencyFeature=10
-featureSet=np.empty([nSample*15,nTimeFeature+nFrequencyFeature])
+featureSet=np.empty([nSample*15,40])
 
 for i in range(0,nSample*15):
 	featureSet[i][:nTimeFeature]=time_draw(data[i])
 	featureSet[i][nTimeFeature:]=frequency_draw(data[i])
 print("特征值提取成功")
 #保存为文件
-allData=np.empty([nSample*15,nTimeFeature+nFrequencyFeature+1])
+allData=np.empty([nSample*15,41])
 #allData[:,:-1]=preprocessing.MinMaxScaler().fit_transform(featureSet)
 allData[:,:-1]=featureSet
 allData[:,-1]=targetSet
 np.savetxt('feature.csv',allData,delimiter=',',fmt='%f')
-
 

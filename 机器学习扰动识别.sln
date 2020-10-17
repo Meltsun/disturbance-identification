@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+VisualStudioVersion = 16.0.30330.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "机器学习扰动识别", "机器学习扰动识别\机器学习扰动识别.pyproj", "{14F55F19-69FB-41C6-BA5A-7CF6467558AD}"
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "DDBOM", "机器学习扰动识别\DDBOM.pyproj", "{14F55F19-69FB-41C6-BA5A-7CF6467558AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +18,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {E2BF8F03-6564-41DA-83A4-9A69F8149820}
+		SolutionGuid = {BE2155B2-999F-499C-98F5-C1BF98F5C942}
 	EndGlobalSection
 EndGlobal
