@@ -45,7 +45,6 @@ if(agree=='单个样本'):
 	
 	#dFeature
 	if(dsCruve=='时域'):
-		data
 		#ser=pd.Series(data.tolist())
 		#ser.plot()
 		st.line_chart(data)
@@ -57,8 +56,11 @@ if(agree=='单个样本'):
 
 	elif(dsCruve=='时域差分'):
 		dataDiff=np.diff(data)
-		dataDiff
 		#图
+		figure1=plt.figure()
+		plt.plot([i for i in range(0,len(dataDiff))],dataDiff)
+		st.pyplot(figure1)
+
 		dFeature=feature.iloc[dsType*150+dsNumber][:-1][15:30]
 		dFeature.index=[i.replace('差分-','') for i in dFeature.index]
 		st.dataframe(pd.DataFrame(dFeature[0:8]).T)
@@ -72,19 +74,18 @@ if(agree=='单个样本'):
 		#根据dsCruveWP的值（字符串）画不同的图
 
 	else:
-		'（还没做好 -_-||）'
+		'（还在做 -_-||）'
 
 
 elif(agree=='一类样本'):
 	#获取各种控制字
 	featureX = st.sidebar.selectbox('X' , featureN)#字符串
-	featureY = st.sidebar.selectbox('Y' , featureN)#字符串
+	featureY = st.sidebar.selectbox('Y' , [i for i in featureN if i !=featureX])#字符串
 	st.sidebar.write('---')
 	dsShow = [st.sidebar.checkbox(dsTypeN[i]) for i in range(0,5)]
 	dsShow = [i for i in range(0,5) if dsShow[i]]#获得被所有勾选的类型编号组成的列表
-	#根据选择的类别和特征值画散点图
-	if(featureY==featureX):
-		st.warning('请选择2个不同的特征值')
+	#根据选择的类别和特征值画散点图:
+	'（还在做 -_-||）'
 
 	
 
