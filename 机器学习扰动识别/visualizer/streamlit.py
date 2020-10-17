@@ -92,5 +92,6 @@ elif(agree=='一类样本'):
 
 
 st.write('---')
-st.text('感觉不对劲请点击右上角‘Clear cache’重新加载')
+st.text('右上角有小人在动说明还没加载完，这东西效率不大高，你得稍微等一下')
+st.text('如果感觉不对劲请点击右上角 ☰ → Clear cache 重新加载')
 st.text('by BJTU_WXY')
