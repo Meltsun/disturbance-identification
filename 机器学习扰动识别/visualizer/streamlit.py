@@ -3,6 +3,10 @@ import numpy as np
 import pandas as pd
 #import matplotlib
 #matplotlib.use('TkAgg')
+import matplotlib as mpl
+mpl.rcParams['font.sans-serif'] = ['KaiTi']
+mpl.rcParams['font.serif'] = ['KaiTi']
+mpl.rcParams['axes.unicode_minus'] = False 
 import matplotlib.pyplot as plt
 
 
@@ -85,6 +89,25 @@ elif(agree=='一类样本'):
 	dsShow = [st.sidebar.checkbox(dsTypeN[i]) for i in range(0,5)]
 	dsShow = [i for i in range(0,5) if dsShow[i]]#获得被所有勾选的类型编号组成的列表
 	#根据选择的类别和特征值画散点图:
+	colorN=['red','blue','green','black','yellow']
+	markerN=['x','o','*','v','s']
+	labelN=['无','车辆经过','浇水','敲击','攀爬']
+	figure2=plt.figure()
+	X = feature[featureX]
+	Y = feature[featureY]
+	plt.xlabel(featureX)
+	plt.ylabel(featureY)
+	for i in dsShow:
+	 
+	 XX = X.iloc[50*i:50*i+49]
+	
+	 YY = Y.iloc[50*i:50*i+49]
+	 
+	 plt.scatter(XX,YY,marker = markerN[i],color = colorN[i], s = 40 ,label = labelN[i])
+	plt.legend(loc = 'best')
+	st.pyplot(figure2)
+	
+
 	'（还在做 -_-||）'
 
 	
