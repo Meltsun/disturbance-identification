@@ -105,11 +105,6 @@ elif(agree=='一类样本'):
 	if(st.sidebar.checkbox("显示图例")):
 		plt.legend(loc = 'best')
 	st.pyplot(figure2)
-	
-
-
-	
-
 
 
 st.write('---')
