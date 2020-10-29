@@ -1,11 +1,12 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
+import pywt
 #import matplotlib
 #matplotlib.use('TkAgg')
 import matplotlib as mpl
-mpl.rcParams['font.sans-serif'] = ['KaiTi']
-mpl.rcParams['font.serif'] = ['KaiTi']
+mpl.rcParams['font.sans-serif'] = ['SimHei']
+mpl.rcParams['font.serif'] = ['SimHei']
 mpl.rcParams['axes.unicode_minus'] = False 
 import matplotlib.pyplot as plt
 
@@ -46,7 +47,27 @@ if(agree=='单个样本'):
 	dsType = dsTypeN.index(dsType)#整数，0-4
 	#单个样本分析中的通用变量
 	data=dataSet[dsType*3+dsNumber//50][dsNumber%50*22:dsNumber%50*22+33]
+    #小波包分解
+	wp=pywt.WaveletPacket(data=data,wavelet='db3',mode='symmetric',maxlevel=2) #2层小波包分解
+	new_wp = pywt.WaveletPacket(data=None, wavelet='db3', mode='symmetric',maxlevel=2) #新建小波包树用来重构4个节点系数
+
+	new_wp['aa'] = wp['aa']
+	LL=new_wp.reconstruct(update=False)
+
+
+	del(new_wp['aa'])
+	new_wp['ad'] = wp['ad']
+	LH=new_wp.reconstruct(update=False)
 	
+
+	del(new_wp['a'])
+	new_wp['da'] = wp['da']
+	HL=new_wp.reconstruct(update=False)
+
+
+	del(new_wp['da'])
+	new_wp['dd'] = wp['dd']
+	HH=new_wp.reconstruct(update=False)
 	#dFeature
 	if(dsCruve=='时域'):
 		#ser=pd.Series(data.tolist())
@@ -76,6 +97,36 @@ if(agree=='单个样本'):
 		st.dataframe(pd.DataFrame(dFeature[5:]).T)
 		dsCruveWP = st.sidebar.selectbox('选择小波图像' , ['最低频','低频','高频','最高频'])
 		#根据dsCruveWP的值（字符串）画不同的图
+		if(dsCruveWP=='最低频'):
+			figure1=plt.figure()
+			plt.plot([i for i in range(0,len(LL))],LL)
+			plt.xlabel('样本点')
+			plt.ylabel('分解系数')
+			plt.title(dsCruveWP)
+			st.pyplot(figure1)
+		elif(dsCruveWP=='低频'):
+			figure1=plt.figure()
+			plt.plot([i for i in range(0,len(LH))],LH)
+			plt.xlabel('样本点')
+			plt.ylabel('分解系数')
+			plt.title(dsCruveWP)
+			st.pyplot(figure1)
+		elif(dsCruveWP=='高频'):
+			figure1=plt.figure()
+			plt.plot([i for i in range(0,len(HL))],HL)
+			plt.xlabel('样本点')
+			plt.ylabel('分解系数')
+			plt.title(dsCruveWP)
+			st.pyplot(figure1)
+		elif(dsCruveWP=='最高频'):
+			figure1=plt.figure()
+			plt.plot([i for i in range(0,len(HH))],HH)
+			plt.xlabel('样本点')
+			plt.ylabel('分解系数')
+			plt.title(dsCruveWP)
+			st.pyplot(figure1)
+
+
 
 	else:
 		'（还在做 -_-||）'
