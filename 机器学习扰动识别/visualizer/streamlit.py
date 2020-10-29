@@ -134,38 +134,34 @@ if(agree=='单个样本'):
 
 elif(agree=='一类样本'):
 	#获取各种控制字
-	featureX = st.sidebar.selectbox('X' , featureN)#字符串
-	featureY = st.sidebar.selectbox('Y' , [i for i in featureN if i !=featureX])#字符串
+	featureX = st.sidebar.selectbox('X' , featureN[:-1])#字符串
+	featureY = st.sidebar.selectbox('Y' , [i for i in featureN if i !=featureX] ,index=39 )#字符串
+	st.sidebar.text('* Y设置为 lable 可查看一维特征分布')
 	st.sidebar.write('---')
 	dsShow = [st.sidebar.checkbox(dsTypeN[i]) for i in range(0,5)]
+	st.sidebar.write('---')
 	dsShow = [i for i in range(0,5) if dsShow[i]]#获得被所有勾选的类型编号组成的列表
 	#根据选择的类别和特征值画散点图:
 	colorN=['red','blue','green','black','yellow']
 	markerN=['x','o','*','v','s']
-	labelN=['无','车辆经过','浇水','敲击','攀爬']
 	figure2=plt.figure()
 	X = feature[featureX]
 	Y = feature[featureY]
 	plt.xlabel(featureX)
 	plt.ylabel(featureY)
 	for i in dsShow:
-	 
-	 XX = X.iloc[50*i:50*i+49]
-	
-	 YY = Y.iloc[50*i:50*i+49]
-	 
-	 plt.scatter(XX,YY,marker = markerN[i],color = colorN[i], s = 40 ,label = labelN[i])
-	plt.legend(loc = 'best')
+		XX = X.iloc[150*i:150*i+150]
+		YY = Y.iloc[150*i:150*i+150]
+		plt.scatter(XX,YY,marker = markerN[i],color = colorN[i], s = 40 ,label = dsTypeN [i])
+	if(st.sidebar.checkbox("显示图例")):
+		plt.legend(loc = 'best')
 	st.pyplot(figure2)
-	
-
-	'（还在做 -_-||）'
-
-	
-
 
 
 st.write('---')
-st.text('右上角有小人在动说明还没加载完，这东西效率不大高，你得稍微等一下')
-st.text('如果感觉不对劲请点击右上角 ☰ → Clear cache 重新加载')
+st.write('请在侧栏从上至下依次设置参数')
+st.text('点击左上角 > 打开侧栏')
+st.text('发生错误时请尝试点击右上角 ☰ → Clear cache 清除缓存')
+st.text('本应用基于python-streamlit ， 右上角有小人在动即正在加载，请稍等')
+st.text('数据更新时间：'+'2020年10月19日00:36:39')
 st.text('by BJTU_WXY')
