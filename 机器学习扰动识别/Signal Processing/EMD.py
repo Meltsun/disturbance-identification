@@ -1,18 +1,14 @@
 import numpy as np
 import pandas as pd
-from sklearn import datasets
 import matplotlib.pyplot as plt
 from pyhht.emd import EMD
 from pyhht.visualization import plot_imfs
 
 #载入时间序列数据
-data = pd.read_csv('C:\\Users\\DELL\\Desktop\\大创\\机器学习扰动识别\\data_Water.csv',header=None)
-#EMD经验模态分解
-decomposer = EMD(data[0])               
+data = pd.read_csv('C:\\Users\\DELL\\Desktop\\相关资料\\originSet_not_st.csv',header=None).transpose()
+decomposer = EMD(data[1]) 
 imfs = decomposer.decompose()
-#绘制分解
-plot_imfs(data[0],imfs,data.index)
-#保存IMFs
-arr = np.vstack((imfs,data[0]))
-dataframe = pd.DataFrame(arr.T)
 
+#绘制分解
+plt.plot([i for i in range(0,len(imfs[0]))],imfs[0]-imfs[1]-imfs[2])
+plt.show()
