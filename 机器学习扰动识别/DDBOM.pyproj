@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>14f55f19-69fb-41c6-ba5a-7cf6467558ad</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Machine Learning\NC_SVM_predictor.py</StartupFile>
+    <StartupFile>Signal Processing\EMD.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -47,6 +47,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Signal Processing\Batch_processor.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signal Processing\EMD.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Signal Processing\Frequency.py">
