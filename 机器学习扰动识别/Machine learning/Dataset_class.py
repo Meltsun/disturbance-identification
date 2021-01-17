@@ -2,10 +2,10 @@
 数据集类
 
 """
-
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
 import numpy as np
+import pandas as pd
 from sklearn.utils import shuffle
 
 class dataset:
@@ -14,9 +14,10 @@ class dataset:
 	data=None
 
 	#构造方法
-	def __init__(self,N=0):
-		self.target=np.empty(N)
-		self.data=np.empty([N,self.nFeatures])
+	def __init__(self,N=None)->None:
+		if(N!=None):
+			self.target=np.empty(N)
+			self.data=np.empty([N,self.nFeatures])
 		return None
 
 	#计算样本数
@@ -35,12 +36,11 @@ class dataset:
 		return lables
 
 	#从字符串列表生成数据集,待修改
-	def build_from_file(self,file):
-		for i in range(0,self.count_sample()):
-			thisData=[eval(t) for t in file[i].split(",")]
-			self.target[i]=thisData[-1]
-			self.data[i]=thisData[:-1]
-		return None
+	def build_from_file(self,fileN):
+		file=pd.read_csv(fileN,index_col=None,header=0,encoding='gbk')
+		self.target=file['lable'].values
+		self.data=file.iloc[:,:-1].values
+		return file
 
 	#按照特定方式标准化
 	def zscore_standardize(self):
@@ -48,7 +48,8 @@ class dataset:
 		return None
 
 	def minmax_standardize(self):
-		self.data=preprocessing.MinMaxScaler().fit_transform(self.data)
+		standardizer = preprocessing.MinMaxScaler().fit(self.data)
+		self.data =standardizer.transform(self.data)
 		return None
 
 	#切分数据,输入为前一返回数据集的样本数量
@@ -90,11 +91,8 @@ class dataset:
 
 #数据导入和预处理，返回一个数据集
 def preprocess(): 
-	file=open("feature.csv")
-	file1=file.readlines()
-	file.close()
-	totalData=dataset(len(file1))
-	totalData.build_from_file(file1)
+	totalData=dataset()
+	totalData.build_from_file("feature.csv")
 	print(f"\n各类样本数量:")
 	print(totalData.count_lable())
 	print('')
@@ -104,9 +102,3 @@ def preprocess():
 def obj_print(self): 
 	print('\n'.join(['%s:%s' % item for item in self.__dict__.items()]))
 	return None
-
-
-
-
-
-
