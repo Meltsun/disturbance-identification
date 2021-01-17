@@ -104,3 +104,9 @@ def preprocess():
 def obj_print(self): 
 	print('\n'.join(['%s:%s' % item for item in self.__dict__.items()]))
 	return None
+
+
+
+
+
+
