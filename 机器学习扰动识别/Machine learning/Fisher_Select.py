@@ -32,7 +32,7 @@ def Fisher_Select(traindata:np,targetdata:np):
 	for i in range(0,39):
 		for j in range(0,4):
 			for k in range(j+1,4):
-				Fisher[i] = Fisher[i]+abs(((data_mean[j][i]-data_mean[k][i])**2)/(data_var[j][i]-data_var[k][i]))
+				Fisher[i] = Fisher[i]+((data_mean[j][i]-data_mean[k][i])**2)/(data_var[j][i]+data_var[k][i])
 
 	y = np.sort(Fisher,axis = 0)
 	idx = np.argsort(-Fisher) # 逆序输出索引，从大到小

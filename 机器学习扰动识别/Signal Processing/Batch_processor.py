@@ -2,7 +2,7 @@
 from Frequency import frequency_draw
 from Time import time_draw
 from sklearn import preprocessing
-from Fisher_Select import Fisher_Select
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -39,8 +39,7 @@ allData[:,-1]=targetSet
 np.savetxt('feature.csv',allData,delimiter=',',fmt='%f')
 
 
-#Fisher得分法筛选测试，可删除
-Fisher_Select(allData)
+
 
 
 

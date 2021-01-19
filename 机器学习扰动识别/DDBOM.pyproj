@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>14f55f19-69fb-41c6-ba5a-7cf6467558ad</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Signal Processing\EMD.py</StartupFile>
+    <StartupFile>Signal Processing\Batch_processor.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
