@@ -28,6 +28,7 @@
     <Folder Include="Signal Processing\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Machine Learning\Fisher_Select.py" />
     <Compile Include="Machine Learning\GRNN_test.py">
       <SubType>Code</SubType>
     </Compile>
@@ -63,7 +64,6 @@
     <Compile Include="Machine Learning\pickle_load.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Signal Processing\Fisher_Select.py" />
     <Compile Include="visualizer\streamlit.py" />
     <Compile Include="visualizer\streamlit%28old%29.py" />
   </ItemGroup>

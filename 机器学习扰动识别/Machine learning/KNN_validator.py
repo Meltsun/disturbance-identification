@@ -8,8 +8,10 @@ from Dataset_class import dataset #数据集 类
 from Dataset_class import obj_print#实例打印 函数
 from Dataset_class import preprocess#生成数据集 函数
 from sklearn import neighbors  #KN分类器
+from Fisher_Select import Fisher_Select
 
 trainData=preprocess()
+ii=Fisher_Select(trainData.data,trainData.target)
 trainData.minmax_standardize()
 trainData.shuffle()
 obj_print(trainData)
