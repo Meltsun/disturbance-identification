@@ -2,8 +2,10 @@
 from Frequency import frequency_draw
 from Time import time_draw
 from sklearn import preprocessing
+
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
 ##划分,得到样本集data（2维numpy数组）
 T=33#周期，必须为33的倍数。
@@ -35,4 +37,13 @@ allData=np.empty([nSample*15,41])
 allData[:,:-1]=featureSet
 allData[:,-1]=targetSet
 np.savetxt('feature.csv',allData,delimiter=',',fmt='%f')
+
+
+
+
+
+
+
+
+		
 
