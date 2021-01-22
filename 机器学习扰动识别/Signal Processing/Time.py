@@ -2,9 +2,16 @@
 #当一个特征值需要多行才能算出来时，用单独函数封装。保证time_draw函数够直观
 import numpy as np
 import math
+import pandas as pd
+import matplotlib.pyplot as plt
+from pyhht.emd import EMD
+from pyhht.visualization import plot_imfs
 
 def time_draw(data:np.ndarray):
 	data2=np.diff(data)
+	decomposer = EMD(data[1]) 
+    imfs = decomposer.decompose()
+	data3=imfs[0]-imfs[1]-imfs[2]
 	feature=np.empty(30)
 	#幅值特征
 	#最大值

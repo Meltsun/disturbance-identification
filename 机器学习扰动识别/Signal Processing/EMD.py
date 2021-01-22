@@ -8,6 +8,7 @@ from pyhht.visualization import plot_imfs
 data = pd.read_csv('C:\\Users\\DELL\\Desktop\\相关资料\\originSet_not_st.csv',header=None).transpose()
 decomposer = EMD(data[1]) 
 imfs = decomposer.decompose()
+#提取特征值
 
 #绘制分解
 plt.plot([i for i in range(0,len(imfs[0]))],imfs[0]-imfs[1]-imfs[2])
